@@ -2,7 +2,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 
 const baseUrl = process.env.REACT_APP_Backendurl;
-console.log(process.env.REACT_APP_Backendurl);
+
 
 const settodo = (newItem, setNewItem, setitems) => {
   const text = newItem;
