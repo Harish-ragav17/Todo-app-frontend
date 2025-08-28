@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useEffect } from "react";
-import { gettodo, settodo, deletetodo, updatetick } from "./utils/Handleapi";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { gettodo, deletetodo, updatetick } from "./utils/Handleapi";
+import {  Route, Routes } from "react-router-dom";
 import Login from "./Login";
 import Home from "./Home";
 import { useNavigate } from 'react-router-dom';

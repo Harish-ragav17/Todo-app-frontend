@@ -4,15 +4,6 @@ import { toast } from "react-toastify";
 const baseUrl = process.env.REACT_APP_Backendurl;
 
 
-const settodo = (newItem, setNewItem, setitems) => {
-  const text = newItem;
-  axios.post(`${baseUrl}/save`, { text }).then((data) => {
-    setNewItem("");
-    gettodo(setitems);
-  });
-};
-export { settodo };
-
 const updatetick = async (id, setitems) => {
   try {
     await axios.post(`${baseUrl}/updatetick`, { id }).then((data) => {

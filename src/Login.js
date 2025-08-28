@@ -4,7 +4,6 @@ import "react-toastify/dist/ReactToastify.css";
 import { login } from './utils/Handleapi';
 import './index.css';
 import { Link, useNavigate } from 'react-router-dom';
-import { use } from 'react';
 
 const Login = ({ setisLoggedIn }) => {
   const [email, setEmail] = React.useState('')

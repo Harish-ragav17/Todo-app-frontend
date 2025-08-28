@@ -8,15 +8,15 @@ const Items = ({ items, setitems }) => {
   const [showModal, setShowModal] = useState(false)
 
   // helper: calculate days remaining
-  const getDaysRemaining = (dueDate) => {
-    const now = new Date()
-    const due = new Date(dueDate)
-    const diff = Math.ceil((due - now) / (1000 * 60 * 60 * 24))
+  // const getDaysRemaining = (dueDate) => {
+  //   const now = new Date()
+  //   const due = new Date(dueDate)
+  //   const diff = Math.ceil((due - now) / (1000 * 60 * 60 * 24))
 
-    if (diff > 0) return `${diff}d`
-    if (diff === 0) return "0d"
-    return `-${Math.abs(diff)}d`
-  }
+  //   if (diff > 0) return `${diff}d`
+  //   if (diff === 0) return "0d"
+  //   return `-${Math.abs(diff)}d`
+  // }
 
   const handleEdit = (item) => {
     setEditId(item._id)
