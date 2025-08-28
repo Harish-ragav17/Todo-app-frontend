@@ -56,7 +56,7 @@ const Login = ({ setisLoggedIn }) => {
 
       <div id='Login-Form'>
         <h1>Login</h1>
-        <form onSubmit={handleLogin}>
+        <form onSubmit={()=>handleLogin()}>
           <input 
             type='text' 
             id='username' 
