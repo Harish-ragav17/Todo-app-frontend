@@ -57,7 +57,6 @@ function App() {
     <div>
         <Routes>
           <Route
-            index
             path="/"
             element={
               <Home

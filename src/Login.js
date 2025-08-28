@@ -8,17 +8,17 @@ import { Link, useNavigate } from 'react-router-dom';
 const Login = ({ setisLoggedIn }) => {
   const [email, setEmail] = React.useState('')
   const [password, setPassword] = React.useState('')
-  // const Navigate = useNavigate()
+  const Navigate = useNavigate()
 
-  // useEffect(() => {
-  //   const token = localStorage.getItem("token");  
-  //   if (token) {
-  //     setisLoggedIn(true);
-  //     Navigate("/");
-  //   } else {
-  //     setisLoggedIn(false);
-  //   }
-  // }, [setisLoggedIn]);
+  useEffect(() => {
+    const token = localStorage.getItem("token");  
+    if (token) {
+      setisLoggedIn(true);
+      Navigate("/");
+    } else {
+      setisLoggedIn(false);
+    }
+  }, [setisLoggedIn]);
 
   const validateInputs = () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
