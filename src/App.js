@@ -55,17 +55,9 @@ function App() {
 
   return (
     <div>
-   
         <Routes>
           <Route
-            path="/login"
-            element={<Login setisLoggedIn={setisLoggedIn} />}
-          />
-          <Route
-            path="/register"
-            element={<Register/>}
-            />
-          <Route
+            index
             path="/"
             element={
               <Home
@@ -78,6 +70,15 @@ function App() {
               />
             }
           />
+          <Route
+            path="/login"
+            element={<Login setisLoggedIn={setisLoggedIn} />}
+          />
+          <Route
+            path="/register"
+            element={<Register/>}
+            />
+          
         </Routes>
 
     </div>

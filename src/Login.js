@@ -8,7 +8,7 @@ import { Link, useNavigate } from 'react-router-dom';
 const Login = ({ setisLoggedIn }) => {
   const [email, setEmail] = React.useState('')
   const [password, setPassword] = React.useState('')
-  const Navigate = useNavigate()
+  // const Navigate = useNavigate()
 
   // useEffect(() => {
   //   const token = localStorage.getItem("token");  
