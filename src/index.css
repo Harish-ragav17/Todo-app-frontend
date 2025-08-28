@@ -1,0 +1,192 @@
+:root{
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+header
+{
+  background-color: rgb(0, 0, 0);
+  text-align: center;
+  width: 100%;
+  top: 0;
+  left: 0;
+  color: white;
+  font-size: 10px;
+  border-radius: 10px;
+}
+header div {
+  margin: 10px 30px 10px 30px;
+  display: flex;
+  justify-content: space-between;
+}
+.items-ul
+{
+  padding: 5px;
+  margin: 0 auto;
+  width: 90%;
+  align-items: left;
+}
+
+li{
+  list-style: none;
+}
+#trashicon
+{
+  float: right;
+}
+#trashicon:hover{
+ color: red;
+ border: none;
+}
+#empty
+{
+background-color: aliceblue;
+width: fit-content;
+margin: 50px auto;
+padding: 20px;
+border-radius: 30px;
+align-items: center;
+text-align: center;
+color: red;
+}
+
+.items {
+  margin-top: 15px;
+  display: flex;
+  align-items: flex-start;   /* checkbox aligns with top of label */
+  gap: 8px;
+  max-width: 100%;
+}
+
+.items input {
+  width: 20px;
+  height: 20px;
+  margin-top: 3px;           /* small adjustment so it matches first text line */
+  flex-shrink: 0;
+}
+
+.items label {
+  font-size: 18px;
+  line-height: 1.4;
+  flex: 1;
+  text-align: left;
+  word-wrap: break-word;
+  white-space: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+
+main{
+  margin-top: 35px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.TaskContainer
+{
+ background-color: aliceblue;
+ padding: 10px 20px;
+ border-radius: 10px;
+ width: 430px;
+ text-align: center;
+ height: fit-content;
+}
+.TaskContainer h2
+{
+  margin: 0;
+}
+
+#Task-Urgent
+{
+  background-color: rgb(255, 179, 179);
+}
+#Task-Normal
+{
+  background-color: rgb(171, 255, 168);
+}
+
+footer
+{
+   background-color: bisque;
+   text-align: center;
+   font-size: 20px;
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   height: 30px;
+   width: 100%;
+   padding: 10px;
+   
+}
+#Login-Container
+{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: aliceblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+}
+#Login-Form
+{
+  background-color: rgb(225, 233, 241);
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+}
+#Login-Form form{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-size: 18px;
+}
+#Login-Form form input{
+  height: 30px;
+  width: 300px;
+  padding: 7px;
+  border-radius: 10px;
+  border: none;
+}
+#Login-Form form button{
+  height: 40px;
+  width: 100px;
+  background-color: green;
+  color: white;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  margin: 0 auto;
+}
+#Login-Form form button:hover{
+  background-color: darkgreen;
+}
+#addnewitem{
+  margin: 20px auto;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  border: 2px solid black;
+  width: fit-content;
+  padding: 8px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+#addnewitem:hover{
+  border: 3px solid green;
+  padding: 7px;
+}
+#addnewitem h2
+{
+   margin: 0; 
+   font-size: 17px;
+   padding: 1px 10px;
+}
