@@ -4,6 +4,7 @@ import { FaPlusCircle } from 'react-icons/fa'
 import Popup from 'reactjs-popup'
 import { addTask } from './utils/Handleapi'
 import { toast, ToastContainer } from 'react-toastify'
+import { useNavigate } from 'react-router-dom'
 
 
 const Content = ({items,setitems,isLoading,error}) => {
@@ -14,6 +15,7 @@ const Content = ({items,setitems,isLoading,error}) => {
     const [importantTasks, setImportantTasks] = useState([]);
     const [normalTasks, setNormalTasks] = useState([]);
     const [doneTasks, setDoneTasks] = useState([]);
+    const Navigate = useNavigate();
 
     useEffect(() => {
         setImportantTasks(
@@ -47,7 +49,7 @@ const Content = ({items,setitems,isLoading,error}) => {
       }
 
       const taskData = { text: newTask, duedate: dueDate };
-      addTask(taskData , setitems , items)
+      addTask(taskData , setitems , items,Navigate)
       setNewTask("");
       setDueDate("");
       close();

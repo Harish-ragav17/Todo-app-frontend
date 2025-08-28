@@ -3,17 +3,17 @@ import { useNavigate } from 'react-router-dom';
 import { fetchUsernameAndPoints } from './utils/Handleapi';
 
 function Header({setisLoggedIn}) {
-    const navigate = useNavigate();
+    const Navigate = useNavigate();
     const [userdata,setuserdata]=React.useState("");
     
     useEffect(() => {
-        fetchUsernameAndPoints(setuserdata)    
+        fetchUsernameAndPoints(setuserdata,Navigate)    
     },[setuserdata])
 
     const handleLogout = () => {    
         localStorage.removeItem("token");
         setisLoggedIn(false);
-        navigate("/login");
+        Navigate("/login");
     }
 
     return (

@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
 import * as fa from 'react-icons/fa'
 import { deletetodo, editTodoText, updatetick } from './utils/Handleapi'
+import { useNavigate } from 'react-router-dom'
 
 const Items = ({ items, setitems }) => {
   const [editId, setEditId] = useState(null)
   const [editText, setEditText] = useState("")
   const [showModal, setShowModal] = useState(false)
+  const Navigate = useNavigate();
 
   // helper: calculate days remaining
   // const getDaysRemaining = (dueDate) => {
@@ -26,15 +28,15 @@ const Items = ({ items, setitems }) => {
 
 
   const checkboxchange = (id) => {
-     updatetick(id, setitems);
+     updatetick(id, setitems,Navigate);
   }
 
   const deleteitem = (id) => {
-    deletetodo(id, setitems);
+    deletetodo(id, setitems,Navigate);
   }
   
   const handleedittextupdate = () => {
-      editTodoText(editText,editId,setitems);
+      editTodoText(editText,editId,setitems,Navigate);
       setEditId(null)
       setEditText("")
       setShowModal(false)

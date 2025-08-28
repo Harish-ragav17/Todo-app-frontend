@@ -42,10 +42,9 @@ const Login = ({ setisLoggedIn }) => {
 
   const handleLogin = (e) => {
     e.preventDefault()
-
     if (!validateInputs()) return
 
-    login(email, password, setisLoggedIn)
+    login(email, password, setisLoggedIn,Navigate)
   }
 
   return (
@@ -56,7 +55,7 @@ const Login = ({ setisLoggedIn }) => {
 
       <div id='Login-Form'>
         <h1>Login</h1>
-        <form onSubmit={()=>handleLogin()}>
+        <form onSubmit={(e)=>handleLogin(e)}>
           <input 
             type='text' 
             id='username' 

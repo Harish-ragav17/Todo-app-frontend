@@ -1,6 +1,6 @@
 import React from 'react'
 import './index.css'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { toast, ToastContainer } from 'react-toastify'
 import { register } from './utils/Handleapi'
 
@@ -9,6 +9,7 @@ const Register = () => {
     const [name, setName] = React.useState('')
     const [email, setEmail] = React.useState('')
     const [password, setPassword] = React.useState('')
+    const Navigate = useNavigate();
 
     const handleRegister = async (e) => {
         e.preventDefault()
@@ -20,7 +21,7 @@ const Register = () => {
             return
         }
         
-        register(name, email, password)
+        register(name, email, password,Navigate)
     }
 
   return (

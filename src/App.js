@@ -11,7 +11,7 @@ function App() {
   const [items, setitems] = useState([]);
   const [isLoading, setisLoading] = useState(true);
   const [isLoggedin, setisLoggedIn] = useState(false);
-  const navigate = useNavigate();
+  const Navigate = useNavigate();
 
   useEffect(() => {
     try {
@@ -23,11 +23,11 @@ function App() {
       }
 
       if (isLoggedin) {
-        gettodo(setitems);
-        navigate("/");
+        gettodo(setitems,Navigate);
+        Navigate("/");
       } else {
         if (window.location.pathname !== "/register") {
-          navigate("/login");
+          Navigate("/login");
         }
       }
     } catch (err) {
@@ -35,7 +35,7 @@ function App() {
     } finally {
       setisLoading(false);
     }
-  }, [isLoggedin,navigate]);
+  }, [isLoggedin,Navigate]);
   
 
   const checkboxchange = (_id) => {

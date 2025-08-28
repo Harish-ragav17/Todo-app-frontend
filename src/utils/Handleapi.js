@@ -4,10 +4,10 @@ import { toast } from "react-toastify";
 const baseUrl = process.env.REACT_APP_Backendurl;
 
 
-const updatetick = async (id, setitems) => {
+const updatetick = async (id, setitems,Navigate) => {
   try {
     await axios.post(`${baseUrl}/updatetick`, { id }).then((data) => {
-      gettodo(setitems);
+      gettodo(setitems,Navigate);
     });
   } catch (err) {
     toast.error("Failed to update task. Please try again. ⚠️", {
@@ -18,7 +18,7 @@ const updatetick = async (id, setitems) => {
 };
 export { updatetick };
 
-const login = async (email, password, setisLoggedIn) => {
+const login = async (email, password, setisLoggedIn,Navigate) => {
   try {
     const { data } = await axios.post(`${baseUrl}/login`, { email, password });
 
@@ -33,7 +33,7 @@ const login = async (email, password, setisLoggedIn) => {
       });
 
       setTimeout(() => {
-        window.location.href = "/";
+        Navigate("/");
       }, 2000);
     } else {
       toast.error(data.message, {
@@ -52,7 +52,7 @@ const login = async (email, password, setisLoggedIn) => {
 
 export { login };
 
-const register = async (name, email, password) => {
+const register = async (name, email, password,Navigate) => {
   try {
     const { data } = await axios.post(`${baseUrl}/register`, {
       name,
@@ -66,7 +66,7 @@ const register = async (name, email, password) => {
         autoClose: 2000,
       });
       setTimeout(() => {
-        window.location.href = "/login";
+        Navigate("/login");
       }, 1000);
     } else {
       toast.error(data.message, {
@@ -96,7 +96,7 @@ const gettoken = () => {
 
 // end of helper
 
-const fetchUsernameAndPoints = async (setuserdata) => {
+const fetchUsernameAndPoints = async (setuserdata,Navigate) => {
   try {
     const { data } = await axios.get(`${baseUrl}/getusernameandpoints`, {
       headers: {
@@ -108,7 +108,7 @@ const fetchUsernameAndPoints = async (setuserdata) => {
     if (err.response.data.error === "Invalid token") {
       localStorage.removeItem("token");
       localStorage.removeItem("username");
-      window.location.href = "/login";
+      Navigate("/login");
     } else {
       toast.error("Error fetching username", {
         position: "top-right",
@@ -119,7 +119,7 @@ const fetchUsernameAndPoints = async (setuserdata) => {
 };
 export { fetchUsernameAndPoints };
 
-const addTask = async (taskData, setitems, items) => {
+const addTask = async (taskData, setitems, items,Navigate) => {
   try {
     const { data } = await axios.post(`${baseUrl}/addtask`, taskData, {
       headers: {
@@ -128,7 +128,7 @@ const addTask = async (taskData, setitems, items) => {
     });
 
     if (data.message === "Task added successfully") {
-      await gettodo(setitems);
+      await gettodo(setitems,Navigate);
       toast.success("Task Added Successfully 🎉", {
         position: "top-right",
         autoClose: 500,
@@ -153,7 +153,7 @@ const addTask = async (taskData, setitems, items) => {
 
 export { addTask };
 
-const gettodo = async (setitems) => {
+const gettodo = async (setitems,Navigate) => {
   try {
     await axios
       .get(`${baseUrl}/gettodo`, {
@@ -163,17 +163,16 @@ const gettodo = async (setitems) => {
         setitems(data);
       });
   } catch (err) {
-    console.log(err);
     if (err.response.data.error === "Invalid token") {
       localStorage.removeItem("token");
       localStorage.removeItem("username");
-      window.location.href = "/login";
+      Navigate("/login");
     }
   }
 };
 export { gettodo };
 
-const deletetodo = (id, setitems) => {
+const deletetodo = (id, setitems,Navigate) => {
   axios
     .post(
       `${baseUrl}/delete`,
@@ -185,7 +184,7 @@ const deletetodo = (id, setitems) => {
       }
     )
     .then((data) => {
-      gettodo(setitems);
+      gettodo(setitems,Navigate);
       toast.success("Task Deleted Successfully 🗑️", {
         position: "top-right",
         autoClose: 1000,
@@ -198,12 +197,12 @@ const deletetodo = (id, setitems) => {
 
 export { deletetodo };
 
-const editTodoText = async (editText, editId, setitems) => {
+const editTodoText = async (editText, editId, setitems,Navigate) => {
   try {
     await axios
       .post(`${baseUrl}/edittext`, { text: editText, _id: editId })
       .then(async (data) => {
-        await gettodo(setitems);
+        await gettodo(setitems,Navigate);
         toast.success("Task Edited Successfully ✏️", {
           position: "top-right",
           autoClose: 1000,
